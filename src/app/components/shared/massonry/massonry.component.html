@@ -1,0 +1,21 @@
+<h2 class="mb-4 animated fast fadeIn">{{ title }}</h2>
+
+<div class="row massonry-primary mb-5 animated fast fadeIn" *ngIf="peliculas">
+    <div class="col-md-6">
+        <div class="feature-movie" [ngStyle]="{'background-image': 'url(' + (peliculas[0] | noImage) + ')'}">
+        </div>
+        <div class="primer-block">
+            <div class="second-movie" [ngStyle]="{'background-image': 'url(' + (peliculas[1] | noImage) + ')'}"></div>
+            <div class="second-movie" [ngStyle]="{'background-image': 'url(' + (peliculas[2] | noImage) + ')'}"></div>
+        </div>
+    </div>
+    <div class="col-md-6">
+
+        <div class="primer-block">
+            <div class="second-movie" [ngStyle]="{'background-image': 'url(' + (peliculas[3] | noImage) + ')'}"></div>
+            <div class="second-movie" [ngStyle]="{'background-image': 'url(' + (peliculas[4] | noImage) + ')'}"></div>
+        </div>
+        <div class="feature-movie" [ngStyle]="{'background-image': 'url(' + (peliculas[5] | noImage) + ')'}">
+        </div>
+    </div>
+</div>
