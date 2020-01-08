@@ -14,7 +14,7 @@ export class MassonryComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.peliculas);
+    // console.log(this.peliculas);
 
   }
 

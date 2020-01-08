@@ -11,7 +11,7 @@ export class PeliculasService {
   private apikey: string = '1bd01a2b8cdcbdf3eaa4aa5f1cd788fc';
   private urlMovieDB: string = 'https://api.themoviedb.org/3';
   movies:any[]=[];
-
+  video:any[]=[];
   constructor(private http: HttpClient) { }
 
   getCartelera(){
@@ -70,4 +70,19 @@ export class PeliculasService {
           // console.log(this.movies)
         }));
   }
+
+  getMovie(id:string){
+    let url = `${this.urlMovieDB}/movie/${id}?api_key=${this.apikey}&language=es`;
+    return this.http.get(url);
+  }
+
+  getVideoOfMovie(id:string){
+    let url = `${this.urlMovieDB}/movie/${id}/videos?api_key=${this.apikey}&language=en-US`;
+    return this.http.get(url).pipe(
+          map((data:any)=>{
+              return this.video = data.results;
+            })
+          );
+  }
+  
 }

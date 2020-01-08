@@ -11,6 +11,8 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { BuscarComponent } from './components/buscar/buscar.component';
 import { NoImagePipe } from './pipes/no-image.pipe';
 import { MassonryComponent } from './components/shared/massonry/massonry.component';
+import { PeliculaComponent } from './components/pelicula/pelicula.component';
+import { DomYoutubePipe } from './pipes/dom-youtube.pipe';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { MassonryComponent } from './components/shared/massonry/massonry.compone
     NavbarComponent,
     BuscarComponent,
     NoImagePipe,
-    MassonryComponent
+    MassonryComponent,
+    PeliculaComponent,
+    DomYoutubePipe
   ],
   imports: [
     BrowserModule,

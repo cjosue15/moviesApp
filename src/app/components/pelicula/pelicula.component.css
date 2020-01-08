@@ -1,0 +1,10 @@
+.row-genero{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul.list-group {
+    justify-content: flex-end;
+}
