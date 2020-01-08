@@ -1,8 +1,18 @@
 <div class="row" *ngIf="movie">
   <div class="col-md-4">
-    <figure>
-      <img class="img-fluid" [src]="movie.poster_path | noImage" alt="" />
-    </figure>
+    <div class="sticky-col">
+      <figure>
+        <img class="img-fluid" [src]="movie.poster_path | noImage" alt="" />
+      </figure>
+      <div class="released mb-4">
+        <span>Fecha de Lanzamiento</span>
+        <span>{{ movie.release_date }}</span>
+      </div>
+      <button class="btn btn-outline-info">
+        <i class="fa fa-long-arrow-left mr-1" aria-hidden="true"></i>
+        Volver
+      </button>
+    </div>
   </div>
   <div class="col-md-8">
     <h1>{{ movie.title }}</h1>
@@ -36,34 +46,50 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title text-muted">Promedio de votos</h5>
-            <p class="card-text">{{ movie.vote_average }}</p>
+            <p class="card-text">{{ movie.vote_average * 10 | number }}%</p>
           </div>
         </div>
       </div>
     </div>
     <div class="row row-genero" *ngIf="movie.genres">
-        <div class="col-md-4">
-            <h5 class="text-muted">Generos</h5>
-        </div>
-        <div class="col-md-8">
-            <ul class="list-group list-group-horizontal-md">
-            <li class="list-group-item" *ngFor="let gen of movie.genres">{{ gen.name }}</li>
-            </ul>
-        </div>
-    </div>
-    <div class="row mt-5 mb-5" *ngIf="video">
-        <div class="col-md-12 text-center">
-          <iframe
-            width="560"
-            height="315"
-            [src]="video[0].key | domYoutube"
-            frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        </div>
+      <div class="col-md-4">
+        <h5 class="text-muted">Generos</h5>
       </div>
+      <div class="col-md-8">
+        <ul class="list-group list-group-horizontal-md">
+          <li class="list-group-item" *ngFor="let gen of movie.genres">
+            {{ gen.name }}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row mt-5 mb-5" *ngIf="video && video.length > 0">
+      <div class="col-md-12 text-center">
+        <iframe
+          width="560"
+          height="315"
+          [src]="video[0].key | domYoutube"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+    <div class="row mt-5 mb-5" *ngIf="movie.production_companies">
+      <div class="col-md-12 text-center">
+        <ul class="companies">
+          <li
+            class="companies-item"
+            *ngFor="let c of movie.production_companies"
+          >
+            <div class="companie-conten-img">
+              <img [src]="c.logo_path | noImage" alt="c.name" />
+            </div>
 
-      
+            <p>{{ c.name }}</p>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>

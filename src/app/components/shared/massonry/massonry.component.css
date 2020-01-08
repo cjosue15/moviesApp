@@ -1,31 +1,96 @@
-.massonry-primary .col-md-6:first-child{
-    padding-right: 0;
+.massonry-primary .col-md-6:first-child {
+  padding-right: 0;
 }
 
-.massonry-primary .col-md-6:nth-child(2){
-    padding-left: 0;
-    
+.massonry-primary .col-md-6:nth-child(2) {
+  padding-left: 0;
 }
 
-.feature-movie{
-    height: 280px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-
+.feature-movie {
+  height: 280px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
-a{
-    display: block;
+a {
+  display: block;
+  position: relative;
+  overflow: hidden;
 }
 
 .primer-block {
-    display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .second-movie {
-    width: 50%;
-    height: 150px;
-    background-size: cover;
-    background-position: center;
+  width: 50%;
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+}
+
+span.title-movie {
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 5;
+  color: #000;
+  text-align: center;
+}
+
+a:hover .title-movie {
+  top: 50%;
+  opacity: 1;
+  visibility: visible;
+  /* -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
+}
+
+/* .feature-movie::after,
+.second-movie::after {
+  content: "";
+  width: 100%;
+  height: 130px;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#000), to(rgba(0, 0, 0, 0)));
+  background-image: linear-gradient(to top, #000, rgba(0, 0, 0, 0));
+  opacity: 1;
+  -ms-filter: none;
+  -webkit-filter: none;
+  filter: none;
+  visibility: visible;
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+*/
+
+.feature-movie::before,
+.second-movie::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  opacity: 0;
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.feature-movie:hover::before,
+.second-movie:hover::before {
+  opacity: 0.79;
 }

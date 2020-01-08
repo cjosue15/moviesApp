@@ -13,6 +13,7 @@ import { NoImagePipe } from './pipes/no-image.pipe';
 import { MassonryComponent } from './components/shared/massonry/massonry.component';
 import { PeliculaComponent } from './components/pelicula/pelicula.component';
 import { DomYoutubePipe } from './pipes/dom-youtube.pipe';
+import { MenosDataPipe } from './pipes/menos-data.pipe';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { DomYoutubePipe } from './pipes/dom-youtube.pipe';
     NoImagePipe,
     MassonryComponent,
     PeliculaComponent,
-    DomYoutubePipe
+    DomYoutubePipe,
+    MenosDataPipe
   ],
   imports: [
     BrowserModule,

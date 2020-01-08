@@ -15,24 +15,24 @@ export class NoImagePipe implements PipeTransform {
     // } else if(pelicula.poster_path) {
     //   return url + pelicula.poster_path;
     // }
-    if(pelicula === null){
-      console.log('Esta nullo');
+    // if(pelicula === null){
+    //   console.log('Esta nullo');
 
-    }
+    // }
 
-    if(pelicula){
-      if( typeof pelicula === 'object'){
-        if(pelicula.backdrop_path){
+    if (pelicula) {
+      if (typeof pelicula === 'object') {
+        if (pelicula.backdrop_path) {
           return url + pelicula.backdrop_path;
-        } else if(pelicula.poster_path) {
+        } else if (pelicula.poster_path) {
           return url + pelicula.poster_path;
         }
-      } 
-  
-      if(typeof pelicula === 'string'){
+      }
+
+      if (typeof pelicula === 'string') {
         return url + pelicula;
       }
-  
+
     }
 
     return 'assets/img/no-image.png';

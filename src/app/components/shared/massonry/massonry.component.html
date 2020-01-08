@@ -1,21 +1,58 @@
 <h2 class="mb-4 animated fast fadeIn">{{ title }}</h2>
 
 <div class="row massonry-primary mb-5 animated fast fadeIn" *ngIf="peliculas">
-    <div class="col-md-6">
-        <a [routerLink]="[ '/pelicula/',peliculas[0].id ]" class="feature-movie" [ngStyle]="{'background-image': 'url(' + (peliculas[0] | noImage) + ')'}">
-        </a>
-        <div class="primer-block">
-            <a [routerLink]="[ '/pelicula/', peliculas[1].id ]" class="second-movie" [ngStyle]="{'background-image': 'url(' + (peliculas[1] | noImage) + ')'}"></a>
-            <a [routerLink]="[ '/pelicula/', peliculas[2].id ]" class="second-movie" [ngStyle]="{'background-image': 'url(' + (peliculas[2] | noImage) + ')'}"></a>
-        </div>
+  <div class="col-md-6">
+    <a
+      [routerLink]="['/pelicula/', peliculas[0].id]"
+      class="feature-movie"
+      [ngStyle]="{
+        'background-image': 'url(' + (peliculas[0] | noImage) + ')'
+      }"
+    >
+      <span class="title-movie">{{ peliculas[0].title }}</span>
+    </a>
+    <div class="primer-block">
+      <a
+        [routerLink]="['/pelicula/', peliculas[1].id]"
+        class="second-movie"
+        [ngStyle]="{
+          'background-image': 'url(' + (peliculas[1] | noImage) + ')'
+        }"
+      >
+      <span class="title-movie">{{ peliculas[1].title }}</span></a>
+      <a
+        [routerLink]="['/pelicula/', peliculas[2].id]"
+        class="second-movie"
+        [ngStyle]="{
+          'background-image': 'url(' + (peliculas[2] | noImage) + ')'
+        }"
+      ><span class="title-movie">{{ peliculas[2].title }}</span></a>
     </div>
-    <div class="col-md-6">
-
-        <div class="primer-block">
-            <a [routerLink]="[ '/pelicula/', peliculas[3].id ]" class="second-movie" [ngStyle]="{'background-image': 'url(' + (peliculas[3] | noImage) + ')'}"></a>
-            <a [routerLink]="[ '/pelicula/', peliculas[4].id ]" class="second-movie" [ngStyle]="{'background-image': 'url(' + (peliculas[4] | noImage) + ')'}"></a>
-        </div>
-        <a [routerLink]="[ '/pelicula/', peliculas[5].id ]" class="feature-movie" [ngStyle]="{'background-image': 'url(' + (peliculas[5] | noImage) + ')'}">
-        </a>
+  </div>
+  <div class="col-md-6">
+    <div class="primer-block">
+      <a
+        [routerLink]="['/pelicula/', peliculas[3].id]"
+        class="second-movie"
+        [ngStyle]="{
+          'background-image': 'url(' + (peliculas[3] | noImage) + ')'
+        }"
+      ><span class="title-movie">{{ peliculas[3].title }}</span></a>
+      <a
+        [routerLink]="['/pelicula/', peliculas[4].id]"
+        class="second-movie"
+        [ngStyle]="{
+          'background-image': 'url(' + (peliculas[4] | noImage) + ')'
+        }"
+      ><span class="title-movie">{{ peliculas[4].title }}</span></a>
     </div>
+    <a
+      [routerLink]="['/pelicula/', peliculas[5].id]"
+      class="feature-movie"
+      [ngStyle]="{
+        'background-image': 'url(' + (peliculas[5] | noImage) + ')'
+      }"
+    ><span class="title-movie">{{ peliculas[5].title }}</span>
+    </a>
+  </div>
 </div>

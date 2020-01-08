@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PeliculasService } from '../../services/peliculas.service';
 
 @Component({
   selector: 'app-buscar',
@@ -7,9 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BuscarComponent implements OnInit {
 
-  constructor() { }
+  movies: any[];
+  fila: any;
+
+  constructor(private _ps: PeliculasService) { }
 
   ngOnInit() {
+    // this.fila = document.querySelector('#rowSearch');
+  }
+
+  findMovie(query: string) {
+
+    if (query.length > 0) {
+
+      this._ps.searchMovie(query).subscribe(data => {
+        this.movies = [];
+        this.movies = data.results;
+        // console.log(this.movies);
+      });
+
+    }
+
   }
 
 }

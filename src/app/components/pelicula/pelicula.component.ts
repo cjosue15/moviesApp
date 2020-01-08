@@ -9,24 +9,24 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PeliculaComponent implements OnInit {
 
-  id:string;
-  movie:any;
-  video:any;
+  id: string;
+  movie: any;
+  video: any;
 
-  constructor(private _ps:PeliculasService,private router:ActivatedRoute) {
+  constructor(private _ps: PeliculasService, private router: ActivatedRoute) {
 
     this.id = (this.router.snapshot.params['id']).toString();
     this._ps.getMovie(this.id).subscribe(data => {
-        this.movie = data;
-        console.log(this.movie);
+      this.movie = data;
+      console.log(this.movie);
     })
 
     this._ps.getVideoOfMovie(this.id).subscribe(data => {
-        this.video = data;
-        console.log(this.video);
-    })
-    
-   }
+      this.video = data;
+      // console.log(this.video);
+    });
+
+  }
 
   ngOnInit() {
   }

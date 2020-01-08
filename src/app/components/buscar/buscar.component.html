@@ -1,1 +1,38 @@
-<p>buscar works!</p>
+<div class="form-group">
+  <input
+    type="text"
+    class="form-control"
+    #search
+    (keyup)="findMovie(search.value)"
+    placeholder="Busca tu pelicula aquí"
+  />
+</div>
+
+<div
+  id="rowSearch"
+  *ngIf="search.value.length > 0"
+  class="animated fadeIn fast"
+>
+  <div class="row">
+    <div class="col-md-6 mb-4" *ngFor="let m of movies">
+      <div class="card cont-search">
+        <div class="col-md-4 conten-img">
+          <a [routerLink]="['/pelicula', m.id]">
+            <img
+              class="img-fluid"
+              [src]="m.poster_path | noImage"
+              [alt]="m.title"
+            />
+          </a>
+        </div>
+        <div class="col-md-8 text-center">
+          <h6>{{ m.title }}</h6>
+          <span class="badge badge-success text-center mb-3">{{
+            m.release_date
+          }}</span>
+          <p>{{ m.overview | menosData }}...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
