@@ -28,11 +28,11 @@ export class HomeComponent {
     this._ps.getPopularesKi()
     .subscribe(data => {
       this.popularesKid = data;
-      console.log(this.popularesKid);
+      // console.log(this.popularesKid);
     });
 
-    this._ps.searchMovie(this.query)
-      .subscribe(data => console.log(data));      
+    // this._ps.searchMovie(this.query)
+    //   .subscribe(data => console.log(data));      
 
   }
 

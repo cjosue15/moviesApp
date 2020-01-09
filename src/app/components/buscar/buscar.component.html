@@ -3,10 +3,14 @@
     type="text"
     class="form-control"
     #search
+    name="str"
+    [(ngModel)]="str"
     (keyup)="findMovie(search.value)"
     placeholder="Busca tu pelicula aquí"
   />
 </div>
+
+{{ str }}
 
 <div
   id="rowSearch"
@@ -17,7 +21,7 @@
     <div class="col-md-6 mb-4" *ngFor="let m of movies">
       <div class="card cont-search">
         <div class="col-md-4 conten-img">
-          <a [routerLink]="['/pelicula', m.id]">
+          <a [routerLink]="['/buscar',str,'pelicula', m.id]" (click)="resetForm()">
             <img
               class="img-fluid"
               [src]="m.poster_path | noImage"
@@ -31,6 +35,7 @@
             m.release_date
           }}</span>
           <p>{{ m.overview | menosData }}...</p>
+          <button [routerLink]="['/buscar',str,'pelicula', m.id]" class="btn btn-outline-success" (click)="resetForm()">Ver más...</button>
         </div>
       </div>
     </div>

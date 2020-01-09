@@ -12,6 +12,8 @@ export class PeliculaComponent implements OnInit {
   id: string;
   movie: any;
   video: any;
+  parametros:any;
+  caja:any;
 
   constructor(private _ps: PeliculasService, private router: ActivatedRoute) {
 
@@ -21,6 +23,8 @@ export class PeliculaComponent implements OnInit {
       console.log(this.movie);
     })
 
+    this.router.params.subscribe(parametros => this.parametros = parametros);
+
     this._ps.getVideoOfMovie(this.id).subscribe(data => {
       this.video = data;
       // console.log(this.video);
@@ -28,7 +32,18 @@ export class PeliculaComponent implements OnInit {
 
   }
 
+  resetForm(){
+
+    if(this.parametros.query){
+      this.caja.value = this.parametros.query;
+
+    }
+    console.log('ga' + this.caja.value);
+    
+  }
+
   ngOnInit() {
+    this.caja = document.getElementById('searchN');
   }
 
 }
