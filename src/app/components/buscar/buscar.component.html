@@ -9,9 +9,6 @@
     placeholder="Busca tu pelicula aquí"
   />
 </div>
-
-{{ str }}
-
 <div
   id="rowSearch"
   *ngIf="search.value.length > 0"
@@ -39,5 +36,12 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class="row row-pagination">
+    <nav>
+      <ul class="pagination">
+        <li class="page-item" *ngFor="let p of total_pages;let i = index"><a class="page-link" (click)="pageSearch(i + 1)">{{ i + 1 }}</a></li>
+      </ul>
+    </nav>
   </div>
 </div>

@@ -56,9 +56,9 @@ export class PeliculasService {
     );
   }
 
-  searchMovie(query: string) {
+  searchMovie(query: string,page:string) {
 
-    let url = `${this.urlMovieDB}/search/movie?api_key=${this.apikey}&language=es&query=${query}`;
+    let url = `${this.urlMovieDB}/search/movie?api_key=${this.apikey}&language=es&query=${query}&page=${page}`;
 
     return this.http.get(url).pipe(
       map((data: any) => {

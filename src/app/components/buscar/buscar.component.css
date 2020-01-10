@@ -27,3 +27,8 @@
   -ms-flex-align: center;
   align-items: center;
 }
+
+.row-pagination{
+  display: flex;
+  justify-content: center;
+}

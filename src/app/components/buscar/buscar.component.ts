@@ -13,6 +13,8 @@ export class BuscarComponent implements OnInit {
   movies: any[];
   str:string;
   caja:any;
+  total_pages:any[] = [];
+  page:string = '1';
   //search:string = "";
 
   constructor(private _ps: PeliculasService,private activatedR:ActivatedRoute) { }
@@ -41,13 +43,30 @@ export class BuscarComponent implements OnInit {
   findMovie() {
 
     if (this.str.length > 0) {
-      this._ps.searchMovie(this.str).subscribe(data => {
-        // this.movies = [];
+      this._ps.searchMovie(this.str,this.page).subscribe(data => {
+        this.total_pages = [];
+        for (let i = 1; i <= data.total_pages; i++) {
+          this.total_pages.push(i);         
+        }
+        // console.log(this.total_pages);
+        // this.total_pages = this.total_pages;
         this.movies = data.results;
-        // console.log(this.movies);
       });
 
     }
+
+  }
+
+  pageSearch(page:string) {
+    this.page = page;
+    // console.log(page);
+    this.total_pages = [];
+    this._ps.searchMovie(this.str,this.page).subscribe(data => {
+      for (let i = 1; i <= data.total_pages; i++) {
+        this.total_pages.push(i);         
+      }
+      this.movies = data.results;
+    });
 
   }
 
