@@ -18,7 +18,10 @@
     <div class="col-md-6 mb-4" *ngFor="let m of movies">
       <div class="card cont-search">
         <div class="col-md-4 conten-img">
-          <a [routerLink]="['/buscar',str,'pelicula', m.id]" (click)="resetForm()">
+          <a
+            [routerLink]="['/buscar', str, 'pelicula', m.id]"
+            (click)="resetForm()"
+          >
             <img
               class="img-fluid"
               [src]="m.poster_path | noImage"
@@ -32,16 +35,37 @@
             m.release_date
           }}</span>
           <p>{{ m.overview | menosData }}...</p>
-          <button [routerLink]="['/buscar',str,'pelicula', m.id]" class="btn btn-outline-success" (click)="resetForm()">Ver más...</button>
+          <button
+            [routerLink]="['/buscar', str, 'pelicula', m.id]"
+            class="btn btn-outline-success"
+            (click)="resetForm()"
+          >
+            Ver más...
+          </button>
         </div>
       </div>
     </div>
   </div>
-  <div class="row row-pagination">
+  <!-- <div class="row row-pagination">
     <nav>
       <ul class="pagination">
-        <li class="page-item" *ngFor="let p of total_pages;let i = index"><a class="page-link" (click)="pageSearch(i + 1)">{{ i + 1 }}</a></li>
+        <li class="page-item" *ngFor="let p of total_pages; let i = index">
+          <a class="page-link" (click)="pageSearch(i + 1)">{{ i + 1 }}</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" (click)="pageSearch(total_pages.length)">{{
+            total_pages.length
+          }}</a>
+        </li>
       </ul>
     </nav>
-  </div>
+  </div> -->
+  <ngb-pagination
+    *ngIf="showPagination"
+    [collectionSize]="total_pages"
+    [(page)]="page"
+    [maxSize]="5"
+    [rotate]="false"
+    (pageChange)="loadPage($event)"
+  ></ngb-pagination>
 </div>
